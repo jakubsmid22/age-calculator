@@ -8,8 +8,10 @@ const calculateAge = () => {
     const birthday = birthDate.value.split('-');
 
     let age = today.getFullYear() - birthday[0];
+    const birthMonth = parseInt(birthday[1], 10) - 1;
+    const birthDay = parseInt(birthday[2], 10);
 
-    if ((today.getMonth() < birthday[1]) && (today.getDay() < birthday[2]) ) {
+    if (today.getMonth() < birthMonth || (today.getMonth() === birthMonth && today.getDate() < birthDay)) {
         age--;
     }
 
